@@ -98,11 +98,21 @@ view: issues_w_schema_1 {
     group_item_label: "Time Zone"
   }
 
-  dimension: fields__created {
-    type: string
+
+  dimension_group: created {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      minute,
+      second
+    ]
     sql: ${TABLE}.fields.created ;;
-    group_label: "Fields"
-    group_item_label: "Created"
   }
 
   dimension: fields__creator__account_id {
